@@ -1,8 +1,13 @@
 
 
+import dao.UserDAO;
 import io.dropwizard.Application;
+import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.skife.jdbi.v2.DBI;
+import resources.HelloWorldResource;
+import resources.ShowUsersResource;
 
 
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
@@ -23,6 +28,12 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
     @Override
     public void run(HelloWorldConfiguration configuration, Environment environment) {
+
+        final DBIFactory factory = new DBIFactory();
+        final DBI jdbi = factory.build(environment, configuration.getDatabase(), "postgresql");
+        final UserDAO dao = jdbi.onDemand(UserDAO.class);
+        environment.jersey().register(new ShowUsersResource(dao));
+
 
         final HelloWorldResource resource = new HelloWorldResource(
                 configuration.getTemplate(),
