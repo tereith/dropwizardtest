@@ -1,5 +1,4 @@
 template: Hello, %s!
-
 defaultName: Stranger
 
 database:
@@ -10,7 +9,7 @@ database:
   # the password
   password: ojat1969
   # the JDBC URL
-  url: jdbc:postgresql://69.89.10.47/sunrec-db
+  url: jdbc:postgresql://69.89.10.47/world
   # any properties specific to your JDBC driver:
   properties:
     charSet: UTF-8
