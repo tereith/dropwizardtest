@@ -4,8 +4,7 @@
     <data-source name="PostgreSQL - @sunrecorder" uuid="00bfc5c8-7bc1-4f6e-bf62-d6eaa4222f50">
       <secret-storage>master_key</secret-storage>
       <user-name>dbuser</user-name>
-      <schema-pattern>sunrec-db.pg_catalog sunrec-db.public</schema-pattern>
-      <default-schemas>sunrec-db.pg_catalog sunrec-db.public</default-schemas>
+      <schema-pattern>world.*</schema-pattern>
     </data-source>
   </component>
 </project>
